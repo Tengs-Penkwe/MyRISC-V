@@ -1,21 +1,12 @@
-/*
- *
- * An ALU is a minimal start for a processor.
- *
- */
-
-// package simple
+package myriscv.frontend
 
 import chisel3._
-// import chisel3.util._
-// import circt.stage.ChiselStage
-import chisel3.util.{circt=>circtUtil, _}
-import circt.stage.ChiselStage
+import chisel3.util._
 
 /**
  * This is a very basic ALU example.
  */
-class Hello extends Module {
+class Alu extends Module {
   val io = IO(new Bundle {
     val fn = Input(UInt(2.W))
     val a = Input(UInt(4.W))
@@ -47,10 +38,10 @@ class Hello extends Module {
 
 
 // Generate the Verilog code
-object HelloMain extends App {
+object AluMain extends App {
   println("Generating the ALU hardware")
   // (new chisel.stage.CverilogString hiselStage).emitVerilog(new Hello(), Array("--target-dir", "generated"))
-  emitVerilog(new Hello(), Array("--target-dir", "generated"))
+  emitVerilog(new Alu(), Array("--target-dir", "generated"))
   // chisel3.emitVerilog(new Hello())
   // val verilogString = chisel3.emitVerilog(new Hello())
   // println(verilogString)
